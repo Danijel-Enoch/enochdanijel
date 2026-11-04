@@ -443,6 +443,61 @@
     border:1px solid var(--line-strong);
   }
 
+  /* ===== SECTION 5 : WRITING ===== */
+  .post-card{
+    font:inherit;
+    color:inherit;
+    text-align:left;
+    width:100%;
+    cursor:pointer;
+  }
+  .post-empty{color:var(--ink-dim); font-size:14px;}
+  /* auto-fill keeps the empty tracks so a lone post card doesn't stretch the full row */
+  #postGrid{grid-template-columns:repeat(auto-fill, minmax(280px,1fr));}
+
+  .reader{
+    position:fixed;
+    inset:0;
+    z-index:30;
+    background:rgba(5,8,10,0.88);
+    backdrop-filter:blur(4px);
+    display:flex;
+    justify-content:center;
+    padding:clamp(16px,5vh,56px) 16px;
+  }
+  .reader[hidden]{display:none;}
+  .reader-panel{
+    position:relative;
+    background:var(--panel);
+    border:1px solid var(--line-strong);
+    width:min(760px,100%);
+    overflow-y:auto;
+    padding:clamp(28px,5vw,56px);
+  }
+  .reader-close{
+    position:absolute;
+    top:10px; right:14px;
+    background:none; border:none;
+    color:var(--ink-faint);
+    font-size:26px; line-height:1;
+    cursor:pointer;
+  }
+  .reader-close:hover{color:var(--green);}
+
+  .md{color:var(--ink-dim); font-size:15px; line-height:1.75;}
+  .md h1{font-family:var(--font-display); font-size:clamp(26px,3.4vw,36px); color:var(--ink); margin-bottom:18px;}
+  .md h2{font-family:var(--font-display); font-size:21px; color:var(--ink); margin:34px 0 12px;}
+  .md h3{font-size:17px; color:var(--ink); margin:26px 0 10px;}
+  .md p, .md ul, .md ol, .md blockquote{margin-bottom:18px;}
+  .md ul, .md ol{padding-left:22px;}
+  .md li{margin-bottom:6px;}
+  .md code{font-family:var(--font-mono); font-size:13px; color:var(--green); background:var(--green-deep); padding:2px 5px; border-radius:2px;}
+  .md pre{background:var(--void); border:1px solid var(--line); padding:16px; overflow-x:auto; margin-bottom:18px;}
+  .md pre code{background:none; padding:0; color:var(--ink);}
+  .md blockquote{border-left:2px solid var(--green-dim); padding-left:16px; color:var(--ink-faint);}
+  .md img{max-width:100%; height:auto;}
+  .md hr{border:none; border-top:1px solid var(--line); margin:28px 0;}
+
   .reveal{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease;}
   .reveal.in{opacity:1; transform:translateY(0);}
 </style>
@@ -455,7 +510,7 @@
 <div class="rail">
   <span>DO / 2026</span>
   <div class="dots" id="navdots">
-    <i data-i="0" class="active"></i><i data-i="1"></i><i data-i="2"></i><i data-i="3"></i><i data-i="4"></i>
+    <i data-i="0" class="active"></i><i data-i="1"></i><i data-i="2"></i><i data-i="3"></i><i data-i="4"></i><i data-i="5"></i>
   </div>
 </div>
 
@@ -509,6 +564,54 @@
   </div>
 
   <div class="proj-grid reveal" id="projGrid">
+    <div class="proj-card">
+      <span class="tag">Quant &middot; 2026</span>
+      <h3>Perp Stat-Arb Scanner</h3>
+      <p>Finds correlated, mean-reverting pairs across FX, commodities, indices and equities &mdash; then checks whether the dislocation clears the cost of putting the trade on as perps.</p>
+      <div class="stackline"><span>TypeScript</span><span>Perps</span><span>Mean reversion</span></div>
+    </div>
+    <div class="proj-card">
+      <span class="tag">Web &middot; 2026</span>
+      <h3>SpeedMap</h3>
+      <p>Measures internet speed spot by spot and builds a map of a home's weak and strong corners. Everything stays in the browser &mdash; no account, no server-side database.</p>
+      <div class="stackline"><span>TypeScript</span><span>PWA</span><span>Local-first</span></div>
+    </div>
+    <div class="proj-card">
+      <span class="tag">Web3 &middot; 2026</span>
+      <h3>Lemon</h3>
+      <p>Delta-neutral basis vaults on Base. Users deposit USDC, an agent runs the long-spot / short-perp position, and every move it makes is published for anyone to check.</p>
+      <div class="stackline"><span>Base</span><span>Solidity</span><span>TypeScript</span></div>
+    </div>
+    <div class="proj-card">
+      <span class="tag">AI &middot; 2026</span>
+      <h3>Banger Tweet</h3>
+      <p>Scores whether a tweet goes viral, then runs a write-judge-revise loop over OpenRouter drafts until the score climbs.</p>
+      <div class="stackline"><span>TypeScript</span><span>OpenRouter</span><span>LLM eval</span></div>
+    </div>
+    <div class="proj-card">
+      <span class="tag">Quant &middot; 2026</span>
+      <h3>meme-hmm</h3>
+      <p>Hidden Markov and hidden semi-Markov models over crypto price regimes &mdash; forward-backward, Baum-Welch and Viterbi written out directly, zero runtime dependencies.</p>
+      <div class="stackline"><span>TypeScript</span><span>Bun</span><span>HMM</span></div>
+    </div>
+    <div class="proj-card">
+      <span class="tag">Quant &middot; 2026</span>
+      <h3>Basis Trading Backtester</h3>
+      <p>Multi-exchange backtester and scanner for funding-rate differentials across 11 perp exchanges and 7 spot venues, including tokenized stocks against HIP-3 perps.</p>
+      <div class="stackline"><span>TypeScript</span><span>Hyperliquid</span><span>Backtesting</span></div>
+    </div>
+    <div class="proj-card">
+      <span class="tag">WebGL &middot; 2026</span>
+      <h3>Kage</h3>
+      <p>Interactive five-chapter night walk through a Kyoto mountain temple, rendered live in Three.js.</p>
+      <div class="stackline"><span>Three.js</span><span>WebGL</span><span>Scroll narrative</span></div>
+    </div>
+    <div class="proj-card">
+      <span class="tag">AI &middot; 2026</span>
+      <h3>Hound</h3>
+      <p>Language-agnostic AI auditor that autonomously builds and refines adaptive knowledge graphs for deep, iterative code reasoning.</p>
+      <div class="stackline"><span>AI agents</span><span>Knowledge graphs</span><span>Static analysis</span></div>
+    </div>
     <div class="proj-card">
       <span class="tag">Mobile &middot; 2025</span>
       <h3>Praxus Wallet</h3>
@@ -597,16 +700,27 @@
   </div>
 </section>
 
+<section id="writing">
+  <div class="head-block reveal">
+    <div class="eyebrow">04 &middot; Writing</div>
+    <h2>Notes from the build.</h2>
+    <p>Writeups on architecture, trading systems, and shipping things that hold up in production. <a href="https://enochdaniel.substack.com/" target="_blank" rel="noopener">Longer essays on Substack &nearr;</a></p>
+  </div>
+
+  <div class="proj-grid reveal" id="postGrid"></div>
+</section>
+
 <section id="contact">
   <div class="contact-grid">
     <div class="reveal">
-      <div class="eyebrow">04 &middot; Let's build</div>
+      <div class="eyebrow">05 &middot; Let's build</div>
       <div class="cta-line">Open to the<br>next hard <span class="accent">problem.</span></div>
       <div class="contact-list">
         <a href="mailto:akintolapraise3449@gmail.com"><span>akintolapraise3449@gmail.com</span><span class="arrow">&rarr;</span></a>
         <a href="tel:+2349024723279"><span>(234) 902-472-3279</span><span class="arrow">&rarr;</span></a>
         <a href="https://github.com/Danijel-Enoch" target="_blank" rel="noopener"><span>github.com/Danijel-Enoch</span><span class="arrow">&rarr;</span></a>
         <a href="https://x.com/enoch_danijel" target="_blank" rel="noopener"><span>x.com/enoch_danijel</span><span class="arrow">&rarr;</span></a>
+        <a href="https://enochdaniel.substack.com/" target="_blank" rel="noopener"><span>enochdaniel.substack.com</span><span class="arrow">&rarr;</span></a>
       </div>
       <footer class="end">DANIEL OLAIDE &middot; SENIOR FULL-STACK ENGINEER &middot; LAGOS, NIGERIA</footer>
     </div>
@@ -627,6 +741,14 @@
   </div>
 </section>
 
+<div class="reader" id="reader" hidden>
+  <div class="reader-panel" role="dialog" aria-modal="true" aria-label="Post">
+    <button class="reader-close" id="readerClose" aria-label="Close post">&times;</button>
+    <article class="md" id="readerBody"></article>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@14.1.4/marked.min.js"></script>
 <script>
 // ---------- network background ----------
 (function(){
@@ -784,6 +906,77 @@
       sections[+d.dataset.i].scrollIntoView({behavior:'smooth'});
     });
   });
+})();
+
+// ---------- markdown blog ----------
+// shortcut: posts/index.json is a hand-kept list (static hosting can't list a dir); add the filename there when you add a .md file.
+(function(){
+  const grid = document.getElementById('postGrid');
+  const reader = document.getElementById('reader');
+  const panel = reader.querySelector('.reader-panel');
+  const bodyEl = document.getElementById('readerBody');
+  const closeBtn = document.getElementById('readerClose');
+  let lastFocus = null;
+
+  function parse(raw){
+    const m = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
+    const out = {body: raw};
+    if(m){
+      out.body = raw.slice(m[0].length);
+      m[1].split(/\r?\n/).forEach(line => {
+        const i = line.indexOf(':');
+        if(i > 0) out[line.slice(0,i).trim()] = line.slice(i+1).trim();
+      });
+    }
+    return out;
+  }
+
+  function openPost(post){
+    lastFocus = document.activeElement;
+    bodyEl.innerHTML = marked.parse(post.body);
+    bodyEl.querySelectorAll('a[href^="http"]').forEach(a => { a.target = '_blank'; a.rel = 'noopener'; });
+    panel.setAttribute('aria-label', post.title || 'Post');
+    reader.hidden = false;
+    document.body.style.overflow = 'hidden';
+    panel.scrollTop = 0;
+    closeBtn.focus();
+  }
+  function closePost(){
+    reader.hidden = true;
+    document.body.style.overflow = '';
+    if(lastFocus) lastFocus.focus();
+  }
+  closeBtn.addEventListener('click', closePost);
+  reader.addEventListener('click', e => { if(e.target === reader) closePost(); });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape' && !reader.hidden) closePost(); });
+
+  function empty(){
+    grid.innerHTML = '<p class="post-empty">No posts yet \u2014 writeups land here and on <a href="https://enochdaniel.substack.com/" target="_blank" rel="noopener">Substack</a>.</p>';
+  }
+
+  fetch('posts/index.json')
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(files => Promise.allSettled(files.map(f =>
+      fetch('posts/' + f).then(r => r.ok ? r.text() : Promise.reject()).then(parse)
+    )))
+    .then(results => {
+      // one bad filename in index.json shouldn't blank the whole list
+      const posts = results.filter(r => r.status === 'fulfilled').map(r => r.value);
+      if(!posts.length) return empty();
+      posts.sort((a,b) => (b.date||'').localeCompare(a.date||''));
+      grid.innerHTML = '';
+      posts.forEach(p => {
+        const card = document.createElement('button');
+        card.className = 'proj-card post-card';
+        card.innerHTML = '<span class="tag"></span><h3></h3><p></p><div class="stackline"><span>Read &rarr;</span></div>';
+        card.querySelector('.tag').textContent = [p.tag || 'Note', p.date].filter(Boolean).join(' \u00b7 ');
+        card.querySelector('h3').textContent = p.title || 'Untitled';
+        card.querySelector('p').textContent = p.summary || '';
+        card.addEventListener('click', () => openPost(p));
+        grid.appendChild(card);
+      });
+    })
+    .catch(empty);
 })();
 
 // ---------- live GitHub stats ----------
