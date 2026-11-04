@@ -1,30 +1,18 @@
 ---
-title: This blog runs on markdown files
+title: Hello, world
 date: 2026-11-04
 tag: Notes
-summary: How writeups get posted here — drop a .md file in /posts, add it to index.json, ship.
+summary: A short note on who's writing, and why this page exists.
 ---
 
-# This blog runs on markdown files
+# Hello, world
 
-No CMS, no build step. A post is a markdown file in `posts/`, listed in `posts/index.json`.
+I'm Daniel. I write software in Lagos, mostly at night.
 
-## Adding a post
+Seven years of it now — wallets, trading engines, contracts, agents. Different names, same shape: something has to keep working when nobody is watching it.
 
-1. Create `posts/my-post.md` with frontmatter:
+Most of that work is invisible by design. A race condition caught before it cost anyone money. A function that quietly does the right thing a million times and never asks for credit. There's no screenshot for it.
 
-```
----
-title: My post
-date: 2026-11-04
-tag: Engineering
-summary: One line that shows on the card.
----
-```
+So this is the margin. The part that doesn't fit in a commit message — what broke, what it taught me, what I'd build differently now.
 
-2. Add `"my-post.md"` to `posts/index.json`.
-3. Commit and push — Vercel does the rest.
-
-Cards sort newest first by `date`. Everything below the frontmatter is normal markdown: headings, lists, code blocks, quotes, images.
-
-> Longer essays go up on Substack. Build notes live here.
+Pull up a chair.
